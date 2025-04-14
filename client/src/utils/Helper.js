@@ -5,3 +5,7 @@ export function setTokenInLocalStorage(token){
 export function getTokenFromLocalStorage(token){
     return localStorage.getItem("auth-key");
 }
+
+export function removeTokenFromLocalStorage(){
+    return localStorage.removeItem("auth-key");
+}

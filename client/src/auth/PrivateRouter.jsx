@@ -2,7 +2,7 @@ import React from "react";
 import {useEffect} from "react";
 import { Outlet } from "react-router";
 import { useNavigate } from "react-router";
-import { getTokenFromLocalStorage } from "../utils/helper";
+import { getTokenFromLocalStorage, removeTokenFromLocalStorage } from "../utils/helper";
 import {checkAuthentication} from "../services/AuthServices"
 
 function PrivateRouter(){
@@ -28,7 +28,16 @@ function PrivateRouter(){
         }
     };
 
-    return (<><Outlet /></>)
+    const logOutFunction = async () => {
+        await removeTokenFromLocalStorage();
+        navigate('/login')
+    }
+
+    return (<>
+    
+    <div ><button style={{ marginLeft:"1442px"}} onClick={logOutFunction}>Logout</button></div>
+    <Outlet />
+    </>)
 }
 
 export default PrivateRouter;

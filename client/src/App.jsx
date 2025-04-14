@@ -8,7 +8,8 @@ import PrivateRouter from "./auth/PrivateRouter.jsx"
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 import AuthLayout from "./auth/AuthLayout";
-
+import CrudModuleList from "./pages/crud/crudModuleList";
+import CrudModuleAddEdit from "./pages/crud/crudModuleAddEdit";
 function App() {
 
 
@@ -22,6 +23,8 @@ function App() {
         </Route>
         <Route element={<PrivateRouter />} >
           <Route index element={<Home />} />
+          <Route path="crud-module" element={<CrudModuleList />} />
+          <Route path="crud-module-add" element={<CrudModuleAddEdit />} />
           {/* <Route path="about" element={<About />} /> */}
         </Route>
         
